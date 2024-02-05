@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Returnere verdi fra funksjon</title>
+  </head>
+  <body>
+    <p id="text">Your age:</p>
+
+    <script>
+      let text = document.getElementById("text");
+
+      let dateOfBirthYear = Number(prompt("Enter your birth year."));
+
+      function claculateAge(dateOfBirthYear) {
+        let currentDate = new Date();
+        let currentYear = currentDate.getFullYear();
+        return currentYear - dateOfBirthYear;
+      }
+      text.innerHTML = `You are ${claculateAge(dateOfBirthYear)} years old.`;
+      console.log(text);
+    </script>
+  </body>
+</html>
