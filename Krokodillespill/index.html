@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Krokodillespill</title>
+    <link rel="stylesheet" href="./sytle.css" />
+  </head>
+  <body>
+    <div class="container">
+      <span id="poeng">Poeng : 0</span>
+
+      <img class="image" src="./crocodile.jpg" alt="Krokodille Image" />
+      <div>
+        <span id="num1">num1</span>
+
+        <input
+          id="answer"
+          type="text"
+          value=""
+          placeholder="Enter logical operator"
+          value=""
+        />
+
+        <span id="num2">num2</span>
+      </div>
+      <div>
+        <button onclick="checkOperator()">Submit</button>
+        <button onclick="reset()">Reset</button>
+      </div>
+    </div>
+
+    <script>
+      const numOne = document.getElementById("num1");
+      const numTwo = document.getElementById("num2");
+      const score = document.getElementById("poeng");
+      const form = document.getElementById("form");
+      let operator = document.getElementById("answer");
+
+      let num1;
+      let num2;
+
+      let poeng = 0;
+
+      generateTwoRandomValues();
+
+      function generateTwoRandomValues() {
+        numOne.innerHTML = randomNumber();
+        num1 = Number(numOne.innerHTML);
+        numTwo.innerHTML = randomNumber();
+        num2 = Number(numTwo.innerHTML);
+      }
+
+      function randomNumber() {
+        let num = Math.floor(Math.random() * 10) + 1;
+
+        return num;
+      }
+
+      function checkOperator() {
+        let opt = operator.value;
+
+        console.log(num1, num2);
+        if (num1 > num2 && opt === ">") {
+          poeng++;
+          console.log(opt, " poeng ", poeng);
+        } else if (num1 < num2 && opt === "<") {
+          poeng++;
+          console.log(opt, " poeng ", poeng);
+        } else if (num1 === num2 && opt === "==") {
+          poeng++;
+          console.log(opt, " poeng ", poeng);
+        } else {
+          poeng--;
+          console.log(opt, " poeng ", poeng);
+        }
+        score.innerHTML = `Poeng : ${poeng}`;
+        operator.value = "";
+        generateTwoRandomValues();
+      }
+
+      function reset() {
+        poeng = 0;
+        score.innerHTML = `Poeng : ${poeng}`;
+        operator.value = "";
+        generateTwoRandomValues();
+      }
+    </script>
+  </body>
+</html>
