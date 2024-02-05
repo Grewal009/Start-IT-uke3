@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lyspære</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body id="body">
+    <div id="container">
+      <div onclick="toggleBulb(this)" class="lightOff"></div>
+      <p id="text"></p>
+    </div>
+
+    <script>
+      let isBulbOn = false;
+      let textArea = document.getElementById("text");
+
+      function toggleBulb(element) {
+        if (!isBulbOn) {
+          element.classList.add("lightOn");
+          isBulbOn = !isBulbOn;
+          textArea.innerHTML = `Lyspære er på`;
+        } else {
+          element.classList.remove("lightOn");
+          isBulbOn = !isBulbOn;
+          textArea.innerHTML = `Lyspære er av`;
+        }
+      }
+    </script>
+  </body>
+</html>
